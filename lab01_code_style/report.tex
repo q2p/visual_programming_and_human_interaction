@@ -18,7 +18,7 @@
 
 \section{Введение}
 
-При разработке личных проектов я стараюсь использовать одинаковый стиль кода вне зависимости от языка.
+При разработке личных проектов я стараюсь использовать одинаковый стиль кода, вне зависимости от языка.
 Я решил привести примеры на различных языках, так как каждый из них имеет свои ньюансы при применении различных стилистических приёмов.
 
 \section{Табуляция}
@@ -26,7 +26,7 @@
 Для отступов внутри блоков кода используются табы. Размер табов в редакторе - два пробела.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 fn main() {
   println!("Hello")
 }
@@ -35,7 +35,7 @@ fn main() {
 Если же отступы нужны внутри строки, то внутри строк используются пробелы.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 const fn rotate_y_matrix(angle: f32) -> &'static [f32; 9] {
   return &[
      angle.cos(), 0, angle.sin(),
@@ -51,7 +51,7 @@ const fn rotate_y_matrix(angle: f32) -> &'static [f32; 9] {
 Переменные, функции, модули, файлы именуются используя \mintinline{c}{snake_case}. Константы именуются используя \mintinline{c}{CONSTANT_CASE}.\newline
 
 \textbf{C:}
-\begin{minted}{c}
+\begin{minted}[frame=single,framesep=2mm]{c}
 enum {
   MEANING_OF_LIFE = 42,
 };
@@ -67,42 +67,42 @@ uint32_t get_random_number() {
 Знаки арифметических операций обрамляются пробелами с обеих сторон.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 let r = (a + b) * c;
 \end{minted}
 
 Скобки при вызове функций не обрамлсяются пробелом слева. Операции взятия указателя ставятся рядом с переменной. После запятой ставится пробел.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 call_func(a, &b);
 \end{minted}
 
 C-подобные языки позволяют убрать фигурные скобки при использовании блока кода, если блок состоит только из одной строки. Я скобки оставляю.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 for i in list {
   i.do_stuff();
 }
 \end{minted}
+\pagebreak
 
 Скобки открывающие блок не переносятся на новую строку.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 if a {
   println!("а")
 } else {
   println!("неа")
 }
 \end{minted}
-\pagebreak
 
 При объявлении указателя, звёздочка ставится рядом с типом.\newline
 
 \textbf{C:}
-\begin{minted}{c}
+\begin{minted}[frame=single,framesep=2mm]{c}
 void func(uint32_t* pointer);
 \end{minted}
 
@@ -111,7 +111,7 @@ void func(uint32_t* pointer);
 Если в языке есть нативная конструкция, то лучше использовать её вместо функций с лямбдами:\newline
 
 \textbf{Kotlin:}
-\begin{minted}{kotlin}
+\begin{minted}[frame=single,framesep=2mm]{kotlin}
 for(i in list) {
   println(i)
 }
@@ -120,18 +120,19 @@ for(i in list) {
 Вместо:\newline
 
 \textbf{Kotlin:}
-\begin{minted}{kotlin}
+\begin{minted}[frame=single,framesep=2mm]{kotlin}
 list.forEach {
   println(it)
 }
 \end{minted}
+\pagebreak
 
 \section{Инициализация переменных}
 
 Переменные объявляются только тогда когда становятся необходимыми и живут только в том блоке, в котором они нужны.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 fn do_the(funny: u64) {
   for i in 0..funny {
     let temp = (i as f32).sqrt();
@@ -143,7 +144,7 @@ fn do_the(funny: u64) {
 Вместо:\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 fn do_the(funny: u64) {
   let mut temp;
   for i in 0..funny {
@@ -158,19 +159,20 @@ fn do_the(funny: u64) {
 Если язык позволяет, то неизменяемые переменные помечаются как таковые.\newline
 
 \textbf{TypeScript:}
-\begin{minted}{typescript}
+\begin{minted}[frame=single,framesep=2mm]{typescript}
 function power_of_4(a: number): number {
   const power_of_2 = a * a;
   return power_of_2 * power_of_2;
 }
 \end{minted}
+\pagebreak
 
 \section{Константы в C и C++}
 
 В C и C++ вместо макросов или переменных с модификатором \mintinline{c}{const} используются энумераторы, так как они вычисляются во время компиляции, их нельзя изменить вызвав UB и они не подвержены недостаткам макросов.\newline
 
 \textbf{C:}
-\begin{minted}{c}
+\begin{minted}[frame=single,framesep=2mm]{c}
 enum {
   MATH_PI         = 3.1415927,
   MATH_E          = 2.7182818,
@@ -183,7 +185,7 @@ enum {
 Если язык по умолчанию не имеет жёстких ограничений по размеру типов \cite{data_type_sizes}, но такие ограничения можно включить, то используются типы с однозначными размерами.\newline
 
 \textbf{C:}
-\begin{minted}{c}
+\begin{minted}[frame=single,framesep=2mm]{c}
 // Может иметь 32, 36 или 48 бит точности
 // в зависимости от архитектуры и компилятора
 long a;
@@ -196,18 +198,19 @@ int32_t b;
 Для избежания циклических включений заголовочных файлов в C и C++ используется не стандартный \mintinline{c}{#pragma once} \newline
 
 \textbf{C:}
-\begin{minted}{c}
+\begin{minted}[frame=single,framesep=2mm]{c}
 #pragma once
 
 void my_function(in8_t a);
 \end{minted}
+\pagebreak
 
 \section{Вермя жизни}
 
 Если есть возможность использовать только чистые функции или синглтон, то лучше этим воспользоваться.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 fn make_request(db_connection: DBConnection) -> Option<String> {
   return db_connection.make_request().as_ref();
 }
@@ -216,23 +219,23 @@ fn make_request(db_connection: DBConnection) -> Option<String> {
 Вместо того, чтобы использовать излишние билдеры или фабрики.\newline
 
 \textbf{Rust:}
-\begin{minted}{rust}
+\begin{minted}[frame=single,framesep=2mm]{rust}
 struct DBRequest {
   db_connection: DBConnection,
-  result: Option<String>,
+  response: Option<String>,
 }
 impl DBRequest {
   fn new(db_connection: DBConnection) -> DBRequest {
     return DBRequest {
       db_connection: db_connection,
-      result: None,
+      response: None,
     };
   }
   fn make_request(&mut self) {
-    self.result = self.db_connection.make_request();
+    self.response = self.db_connection.make_request();
   }
   fn get_response(&self) -> Option<&str> {
-    return self.result.as_ref();
+    return self.response.as_ref();
   }
 }
 \end{minted}
