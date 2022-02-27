@@ -76,8 +76,8 @@ class Human {
 			this->set_first_name(first_name);
 			this->set_last_name(last_name);
 			this->set_patronymic(patronymic);
-			this->height = height;
-			this->weight = weight;
+			this->set_height(height);
+			this->set_weight(weight);
 			this->move_to(initial_location);
 		}
 		const std::string& get_first_name() const {
@@ -88,6 +88,12 @@ class Human {
 		}
 		const std::string& get_patronymic() const {
 			return this->patronymic;
+		}
+		double get_height() const {
+			return this->height;
+		}
+		double get_weight() const {
+			return this->weight;
 		}
 		const GCS& get_location() const {
 			return this->movement_history.back();
@@ -106,6 +112,12 @@ class Human {
 		}
 		void set_patronymic(const std::string& patronymic) {
 			this->patronymic = patronymic;
+		}
+		void set_height(const double height) {
+			this->height = height;
+		}
+		void set_weight(const double weight) {
+			this->weight = weight;
 		}
 		void move_to(const GCS& location) {
 			this->movement_history.push_back(location);
