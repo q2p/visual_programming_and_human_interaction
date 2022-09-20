@@ -80,9 +80,10 @@ modulators = [
 ]
 
 for modulator in modulators:
+  print(modulator.title)
   bits = generate(modulator.step)
-  print(bits)
+  print('modulated:', bits)
   comp = modulate(bits, modulator)
   bits_demod = demodulate(comp, modulator)
-  print(bits_demod)
+  print('demodulated:', bits_demod)
   
